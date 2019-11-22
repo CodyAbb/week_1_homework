@@ -48,3 +48,35 @@ def pets_by_breed(shop_name, breed_to_be_searched)
 
   return final_array
 end
+
+
+def find_pet_by_name(shop_name, pet_to_be_searched)
+  for pet in shop_name[:pets]
+    if pet[:name] == pet_to_be_searched
+      return pet
+    end
+  end
+  return nil
+end
+
+
+def remove_pet_by_name(shop_name, pet_to_be_deleted)
+  for pet in shop_name[:pets]
+    if pet[:name] == pet_to_be_deleted
+      shop_name[:pets].delete(pet)
+    end
+  end
+end
+
+#These two are related functions
+def stock_count(shop_name)
+  shop_name[:pets].length
+end
+
+def add_pet_to_stock(shop_name, pet_to_be_added)
+  shop_name[:pets] << pet_to_be_added
+end
+
+def customer_cash(customer)
+  return customer[:cash]
+end
