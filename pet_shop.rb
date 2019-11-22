@@ -94,5 +94,31 @@ def customer_pet_count(customer)
 end
 
 def add_pet_to_customer(customer, pet_for_customer)
-  customer[:pets] << pet_for_customer
+  customer[:pets] << pet_for_customer[:price]
+end
+
+
+######### OPTIONAL QUESTIONS ###################
+
+def customer_can_afford_pet(customer, pet_cost)
+  if customer[:cash] >= pet_cost[:price]
+    return true
+  else
+    return false
+  end
+end
+
+
+def sell_pet_to_customer(shop_name, pet, customer)
+
+
+  if customer_can_afford_pet(customer, pet[:price])
+    remove_customer_cash(customer)
+    customer_pet_count(customer)
+    increase_pets_sold(shop_name)
+  end
+
+
+  add_or_remove_cash(shop_name, pet[:price])
+  pets_sold(shop_name)
 end
