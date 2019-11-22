@@ -77,6 +77,22 @@ def add_pet_to_stock(shop_name, pet_to_be_added)
   shop_name[:pets] << pet_to_be_added
 end
 
+
+# These two functions are related
 def customer_cash(customer)
   return customer[:cash]
+end
+
+def remove_customer_cash(customer, cash_to_be_removed)
+  customer[:cash] -= cash_to_be_removed
+end
+
+
+#These two functions are related
+def customer_pet_count(customer)
+  return customer[:pets].length
+end
+
+def add_pet_to_customer(customer, pet_for_customer)
+  customer[:pets] << pet_for_customer
 end
